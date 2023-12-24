@@ -1,0 +1,54 @@
+{% extends "AppCoder/padre.html" %}
+
+{% block contenidoQueCambia %}
+<style>
+    .blog-container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .blog-title, .blog-subtitle {
+        color: #0077b6;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .blog-author {
+        text-align: center;
+        margin-bottom: 20px;
+        font-style: italic;
+        color: #555;
+    }
+
+    .blog-content {
+        color: #333;
+        line-height: 1.6;
+    }
+
+    .blog-image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="blog-container">
+    <h1 class="blog-title">{{ blog.titulo }}</h1>
+    <h2 class="blog-subtitle">{{ blog.subtitulo }}</h2>
+    
+    {% if blog.imagen %}
+        <img src="{{ blog.imagen.url }}" alt="{{ blog.titulo }}" class="blog-image" />
+    {% endif %}
+    <div class="blog-content">
+        {{ blog.post|linebreaks }}
+
+    <div class="blog-author">Escrito por: {{ blog.autor.get_full_name }}</div>
+    </div>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,75 @@
+{% extends 'AppCoder/padre.html' %}
+
+{% block contenidoQueCambia %}
+
+<style>
+    .form-container {
+        background-color: #f9f9f9;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 700px;
+        margin: 40px auto;
+        text-align: center;
+    }
+
+    .form-container h2 {
+        color: #0077b6; /* Azul oscuro para el título */
+        margin-bottom: 30px;
+    }
+
+    .form-container form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-container label {
+        margin-top: 0.5rem;
+    }
+
+    .form-container input[type="text"],
+    .form-container textarea,
+    .form-container select {
+        font-size: 1rem;
+        padding: 0.5rem;
+        margin-top: 0.25rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    .form-container input[type="submit"] {
+        background-color: #4CAF50; /* Verde para el botón */
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        margin-top: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .form-container input[type="submit"]:hover {
+        background-color: #45a049; /* Oscurece el botón al pasar el mouse */
+    }
+
+    @media (max-width: 768px) {
+        .form-container {
+            width: 90%;
+        }
+    }
+</style>
+
+<div class="form-container">
+    <h2>Publicar Blog</h2>
+    <form action="{% url 'AppCoder:curso-create' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-field">
+            {{ form.as_p }}
+        </div>
+        <input type="submit" value="Crear">
+    </form>
+</div>
+
+{% endblock %}

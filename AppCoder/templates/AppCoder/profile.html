@@ -1,0 +1,102 @@
+{% extends "AppCoder/padre.html" %}
+
+{% block contenidoQueCambia %}
+
+<style>
+    /* Estilos para el contenedor del perfil y los posts */
+    .profile-container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Estilos para la imagen del avatar */
+    .avatar {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin: 20px auto;
+        display: block;
+    }
+
+    /* Estilos para cada post */
+    .post {
+        background-color: white;
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Estilos para el título y el contenido del post */
+    .post-title {
+        color: #0077b6;
+        margin-bottom: 10px;
+    }
+
+    .post-content {
+        color: #333;
+    }
+
+    /* Estilo para el enlace 'Leer más' */
+    .read-more {
+        color: #0077b6;
+        text-decoration: none;
+    }
+
+    .read-more:hover {
+        text-decoration: underline;
+    }
+
+    /* Estilos para el botón 'Editar Perfil' */
+    .edit-profile-button {
+        display: inline-block;
+        background-color: #0077b6;
+        color: white;
+        text-decoration: none;
+        padding: 8px 15px;
+        margin: 20px 0;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: background-color 0.3s;
+        text-align: center;
+    }
+
+    .edit-profile-button:hover {
+        background-color: #005f73;
+    }
+
+    /* Centrar el botón 'Editar Perfil' */
+    .button-container {
+        text-align: center;
+    }
+</style>
+
+<div class="profile-container">
+    {% if avatar_url %}
+        <img src="{{ avatar_url }}" alt="Avatar" class="avatar"/>
+    {% endif %}
+
+    <!-- Contenedor para el botón, centrado -->
+    <div class="button-container">
+        <a href="{% url 'AppCoder:editar-perfil' %}" class="edit-profile-button">Editar Perfil</a>
+    </div>
+
+    <!-- Mostrando el nombre completo del usuario en lugar del nombre de usuario -->
+    <h2>Publicaciones de {{ user.first_name }} {{ user.last_name }}</h2>
+
+    {% for post in posts %}
+        <div class="post">
+            <h3 class="post-title">{{ post.titulo }}</h3>
+            <p class="post-content">{{ post.post|linebreaks }}</p>
+            <a href="{% url 'AppCoder:blog_view' post.id %}" class="read-more">Leer más</a>
+        </div>
+    {% empty %}
+        <p>No hay publicaciones para mostrar.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

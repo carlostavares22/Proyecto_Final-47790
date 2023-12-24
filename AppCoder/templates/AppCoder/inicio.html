@@ -1,0 +1,76 @@
+{% extends "AppCoder/padre.html" %}
+
+{% block contenidoQueCambia %}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        color: #333;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+    }
+    header, footer {
+        background-color: #0077b6;
+        color: white;
+        padding: 20px 0;
+    }
+    header h1 {
+        color: white; /* Color blanco para el título del blog */
+    }
+    main {
+        background-color: #e8f1f2;
+        padding: 20px;
+    }
+    h1, h2, h3 {
+        color: #0077b6;
+    }
+    p {
+        line-height: 1.6;
+    }
+    section {
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="container">
+    <header>
+        <h1>Bienvenido a Blog 47790</h1>
+        <p>¡Hola y bienvenido! Soy Carlos Tavares, el creador de Blog 47790.</p>
+    </header>
+
+    <main>
+        <section>
+            <article>
+                <h3>Artículos y Entradas</h3>
+                <p>Regularmente publico artículos detallados y reflexiones.</p>
+            </article>
+            <article>
+                <h3>Recursos y Guías</h3>
+                <p>Además de los artículos, ofrezco recursos y guías útiles que pueden ayudarte.</p>
+            </article>
+            <article>
+                <h3>Comunidad y Conversación</h3>
+                <p>Animo a los lectores a dejar sus comentarios y a unirse a la conversación.</p>
+            </article>
+        </section>
+
+        <section>
+            <h2>Únete a la Aventura</h2>
+            <p>Me encantaría que te unieras a nuestra comunidad. Puedes suscribirte al boletín para recibir las últimas actualizaciones y seguirme en las redes sociales. Si tienes alguna pregunta o sugerencia, no dudes en contactarme.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>¡Espero que disfrutes leyendo y participando tanto como yo disfruto creando este contenido!</p>
+        <p>{{ mensaje }}</p>
+    </footer>
+</div>
+
+{% endblock %}

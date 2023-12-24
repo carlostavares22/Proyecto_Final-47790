@@ -1,0 +1,69 @@
+{% extends "AppCoder/padre.html" %}
+
+{% block contenidoQueCambia %}
+
+<style>
+    header, section, footer {
+        text-align: center;
+        margin: 0px;
+    }
+
+    header h1, footer p {
+        color: #000000; /* Color blanco */
+    }
+
+    section h2 {
+        color: #005f73; /* Un tono de azul ligeramente más oscuro para los subtítulos */
+    }
+
+    p {
+        color: #333; /* Color para el texto normal */
+    }
+
+    .container {
+        width: 80%;
+        margin: auto;
+        padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            width: 95%;
+        }
+    }
+</style>
+
+<div class="container">
+    <header>
+        <h2>47790</h2>
+        <p>Conoce más sobre Blog 47790</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Nuestra Misión</h2>
+            <p>En Blog 47790, nuestra misión es empoderar a la comunidad con información y asesoramiento de calidad. Nos esforzamos por ser un recurso confiable en el que puedas confiar para resolver tus dudas y fomentar el aprendizaje.</p>
+        </section>
+
+        <section>
+            <h2>Nuestro Equipo</h2>
+            <p>Detrás de Blog 47790 hay un equipo dedicado de expertos y entusiastas. Conoce a nuestros miembros: Ysolda, una apasionada del aprendizaje continuo; Balgruuf, experto en tecnología y innovación; y Lydia, nuestra incansable especialista en soporte al cliente y su pasión por ayudar a los demás.</p>
+        </section>
+
+        <section>
+            <h2>Nuestra Historia</h2>
+            <p>Blog 47790 comenzó en 2015 como un pequeño proyecto de blog. Desde entonces, hemos crecido hasta convertirnos en una de las principales fuentes de información y ayuda en línea, ofreciendo guías detalladas y asesoramiento experto en diversos temas.</p>
+        </section>
+
+        <section>
+            <h2>Contacto</h2>
+            <p>¿Tienes preguntas o quieres ponerte en contacto con nosotros? No dudes en enviarnos un mensaje a contacto@blog47790.com o seguirnos en nuestras redes sociales.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Gracias por visitar nuestro sitio. ¡Esperamos verte de nuevo pronto!</p>
+    </footer>
+</div>
+
+{% endblock %}

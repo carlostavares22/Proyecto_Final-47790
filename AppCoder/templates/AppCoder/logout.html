@@ -1,0 +1,52 @@
+{% extends "AppCoder/padre.html" %}
+
+{% block contenidoQueCambia %}
+
+<style>
+    .logout-container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 40px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .logout-message {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .logout-icon {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 20px;
+        display: block;
+        background: url('/path/to/logout-icon.png') no-repeat center center; 
+        background-size: contain;
+    }
+
+    .home-link {
+        display: inline-block;
+        background-color: #0077b6;
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .home-link:hover {
+        background-color: #005f73;
+    }
+</style>
+
+<div class="logout-container">
+    <div class="logout-icon"></div>
+    <p class="logout-message">Has cerrado sesión exitosamente. ¡Esperamos verte de nuevo pronto!</p>
+    <a href="{% url 'AppCoder:inicio' %}" class="home-link">Ir al Inicio</a>
+</div>
+
+{% endblock %}

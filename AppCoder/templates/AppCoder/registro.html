@@ -1,0 +1,88 @@
+{% extends 'AppCoder/padre.html' %}
+
+{% block contenidoQueCambia %}
+
+<style>
+    .form-container {
+        background-color: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 40px auto;
+    }
+
+    .form-title {
+        color: #0077b6;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .form-field {
+        margin-bottom: 20px;
+    }
+
+    .form-field label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-field input[type="text"],
+    .form-field input[type="email"],
+    .form-field input[type="password"],
+    .form-field input[type="file"],
+    .form-field textarea,
+    .form-field select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .error-list {
+        color: red;
+        padding-left: 20px;
+    }
+
+    .submit-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        display: block;
+        width: 100%;
+    }
+
+    .submit-button:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<div class="form-container">
+    <h2 class="form-title">Registro</h2>
+    <form action="/AppCoder/registro" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div class="form-field">
+                {{ field.label_tag }}
+                {{ field }}
+
+                {% if field.errors %}
+                    <ul class="error-list">
+                        {% for error in field.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <input type="submit" value="Registrar usuario" class="submit-button">
+    </form>
+</div>
+
+{% endblock %}

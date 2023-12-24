@@ -1,0 +1,90 @@
+{% extends 'AppCoder/padre.html' %}
+
+{% block contenidoQueCambia %}
+
+<style>
+    .form-container {
+        background-color: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 40px auto;
+        text-align: center;
+    }
+
+    .form-title {
+        color: #0077b6;
+        margin-bottom: 30px;
+    }
+
+    .form-field {
+        margin-bottom: 20px;
+    }
+
+    .form-field label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-field input[type="text"],
+    .form-field input[type="email"],
+    .form-field input[type="password"],
+    .form-field input[type="file"],
+    .form-field textarea,
+    .form-field select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .form-field input[type="submit"] {
+        background-color: #4CAF50; 
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .form-field input[type="submit"]:hover {
+        background-color: #45a049; 
+    }
+
+    .error-message {
+        color: red;
+        margin-bottom: 20px;
+    }
+    
+</style>
+
+<div class="form-container">
+    <h2 class="form-title">Login</h2>
+
+    <!-- Bloque para mostrar el mensaje de error -->
+    {% if messages %}
+        <div class="error-message">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <form action="/AppCoder/login" method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-field">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}
+                    <div class="error-list">{{ field.errors }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <input type="submit" value="Iniciar sesión" class="submit-button">
+    </form>
+</div>
+
+{% endblock %}

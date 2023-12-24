@@ -1,0 +1,71 @@
+{% extends 'AppCoder/padre.html' %}
+
+{% block contenidoQueCambia %}
+
+<style>
+    .mensajes-container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .mensaje {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: white;
+    }
+
+    .mensaje-encabezado {
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .mensaje-cuerpo {
+        margin-bottom: 10px;
+    }
+
+    .mensaje-fecha {
+        font-size: 0.9em;
+        color: #777;
+    }
+
+    .btn-enviar {
+        display: block;
+        margin: 20px auto 40px;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .btn-enviar:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<div class="mensajes-container">
+    <h2>Mensajes Recibidos</h2>
+
+    <!-- Botón para enviar un nuevo mensaje -->
+    <a href="{% url 'AppCoder:enviar_mensaje' %}" class="btn-enviar">Enviar Mensaje Nuevo</a>
+
+    {% for mensaje in mensajes %}
+        <div class="mensaje">
+            <div class="mensaje-encabezado">De: {{ mensaje.remitente.username }}</div>
+            <div class="mensaje-cuerpo">{{ mensaje.contenido }}</div>
+            <div class="mensaje-fecha">Enviado el: {{ mensaje.fecha_hora|date:"d/m/Y H:i" }}</div>
+        </div>
+    {% empty %}
+        <p>No tienes mensajes nuevos.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}
