@@ -45,34 +45,24 @@ Tener una app de perfiles en el route accounts/profile/ la cual muestra la info 
 
 ## Credenciales Usuarios Ficticios
 
-Nombre: Laura
-Apellido: Gómez
 Username: lauragomez
-Email: laura.gomez@example.com
+
 Password: Lg123456!
 
-Nombre: Carlos
-Apellido: Martínez
 Username: carlosmart
-Email: carlos.martinez@example.com
+
 Password: Cm789101!
 
-Nombre: Ana
-Apellido: Rodríguez
 Username: anarodriguez
-Email: ana.rodriguez@example.com
+
 Password: Ar111213!
 
-Nombre: Juan
-Apellido: Pérez
 Username: juanperez
-Email: juan.perez@example.com
+
 Password: Jp141516!
 
-Nombre: María
-Apellido: López
 Username: marialopez
-Email: maria.lopez@example.com
+
 Password: Ml171819!
 
 ## CRUD
